@@ -1,14 +1,13 @@
-def dividir (A, B):
-    if B == 0:
-        return "Error: No se puede dividir entre cero"
-    else:
-        Resultado = 0
-        while A >= B:
-            A = A - B
-            Resultado = Resultado + 1
+num1 = 20
+num2 = 5
 
-    return Resultado
-print(dividir(14, 2))
+resultado = 0
+
+while num1 >= num2:
+    num1 = num1 - num2
+    resultado = resultado + 1
+
+print("El resultado es:", resultado)
 
 
 def modulo(a, b):
