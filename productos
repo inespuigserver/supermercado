@@ -1,24 +1,24 @@
 productos = [
-    "Manzanas rojas",
-    "Pasta espagueti",
-    "Arroz largo",
-    "Leche entera",
-    "Huevos de gallina",
-    "Pan de molde",
-    "Pollo fresco",
-    "Yogur natural",
-    "Detergente líquido",
-    "Suavizante de ropa",
-    "Lavavajillas",
+    "Manzana",
+    "Pasta",
+    "Arroz",
+    "Leche",
+    "Huevos",
+    "Pan",
+    "Pollo",
+    "Yogur",
+    "Detergente",
+    "Suavizante",
+    "Jabón",
     "Lejía",
     "Limpiacristales",
     "Ambientador",
     "Agua mineral",
-    "Refresco de cola",
+    "Cocacola",
     "Zumo de naranja",
     "Cerveza",
-    "Café molido",
-    "Té verde"
+    "Café",
+    "Té"
 ]
 
 stock_productos = [
