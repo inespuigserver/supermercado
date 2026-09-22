@@ -22,25 +22,25 @@ productos = [
 ]
 
 stock_productos = [
-    {"nombre": "Manzanas rojas", "cantidad": 24},
-    {"nombre": "Pasta espagueti", "cantidad": 15},
-    {"nombre": "Arroz largo", "cantidad": 10},
-    {"nombre": "Leche entera", "cantidad": 30},
-    {"nombre": "Huevos de gallina", "cantidad": 50},
-    {"nombre": "Pan de molde", "cantidad": 20},
-    {"nombre": "Pollo fresco", "cantidad": 12},
-    {"nombre": "Yogur natural", "cantidad": 25},
-    {"nombre": "Detergente líquido", "cantidad": 8},
-    {"nombre": "Suavizante de ropa", "cantidad": 6},
-    {"nombre": "Lavavajillas", "cantidad": 5},
+    {"nombre": "Manzana", "cantidad": 24},
+    {"nombre": "Pasta", "cantidad": 15},
+    {"nombre": "Arroz", "cantidad": 10},
+    {"nombre": "Leche", "cantidad": 30},
+    {"nombre": "Huevos", "cantidad": 50},
+    {"nombre": "Pan", "cantidad": 20},
+    {"nombre": "Pollo", "cantidad": 12},
+    {"nombre": "Yogur", "cantidad": 25},
+    {"nombre": "Detergente", "cantidad": 8},
+    {"nombre": "Suavizante", "cantidad": 6},
+    {"nombre": "Jabón", "cantidad": 5},
     {"nombre": "Lejía", "cantidad": 7},
     {"nombre": "Limpiacristales", "cantidad": 9},
     {"nombre": "Ambientador", "cantidad": 4},
     {"nombre": "Agua mineral", "cantidad": 35},
-    {"nombre": "Refresco de cola", "cantidad": 20},
+    {"nombre": "Cocacola", "cantidad": 20},
     {"nombre": "Zumo de naranja", "cantidad": 18},
     {"nombre": "Cerveza", "cantidad": 15},
-    {"nombre": "Café molido", "cantidad": 12},
-    {"nombre": "Té verde", "cantidad": 10}
+    {"nombre": "Café", "cantidad": 12},
+    {"nombre": "Té", "cantidad": 10}
 ]
 
