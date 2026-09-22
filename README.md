@@ -2,63 +2,96 @@
 
 ## Objetivo
 
-El objetivo del proyecto es desarrollar una simulación de la gestión de recursos de un supermercado.
+El objetivo del proyecto es desarrollar una simulación del funcionamiento y la gestión de recursos de un supermercado.
 
-El programa deberá controlar los productos disponibles, su stock y su precio, simulando la relación entre el supermercado, el almacén, los pedidos y la fábrica.
+El programa deberá controlar los productos disponibles, sus precios y el stock existente tanto en el supermercado como en el almacén.
 
-El sistema deberá tener en cuenta las dependencias entre estas partes. Por ejemplo, un pedido no podrá completarse si no existe suficiente stock en el almacén y, si el almacén se queda sin unidades de un producto, deberá solicitar nuevas unidades a la fábrica.
+La simulación representará el ciclo de abastecimiento de un supermercado: los clientes compran productos, el supermercado repone su stock utilizando el almacén y, cuando el almacén necesita más productos, solicita nuevas unidades a la fábrica.
+
+---
 
 ## Funcionamiento
 
-El proyecto se divide en cuatro partes principales:
+El proyecto estará formado por cuatro elementos principales:
 
 ### Supermercado
 
-Representa la tienda en la que se venden los productos.
+Representa la tienda donde los clientes compran los productos.
 
-Deberá:
+Cada producto tendrá:
 
-- Contener los productos disponibles.
-- Guardar el precio de cada producto.
-- Controlar el stock disponible en la tienda.
-- Actualizar el stock cuando se realice una compra.
+- Nombre.
+- Precio.
+- Stock disponible en el supermercado.
+
+Cuando un cliente compre un producto, se descontarán las unidades correspondientes del stock del supermercado.
+
+Si el stock de un producto se termina o baja de un determinado límite, el supermercado deberá solicitar nuevas unidades al almacén.
+
+---
+
+### Compras de clientes
+
+Las compras de los clientes se generarán de manera aleatoria.
+
+El programa seleccionará distintos productos y cantidades de forma random para simular las compras realizadas por los clientes.
+
+De esta manera, el stock de los productos irá disminuyendo de forma diferente en cada ejecución y no siempre se agotarán los mismos productos.
+
+Cada compra deberá:
+
+- Seleccionar uno o varios productos.
+- Comprobar que existe suficiente stock en el supermercado.
+- Calcular el coste de la compra.
+- Descontar los productos comprados del stock del supermercado.
+
+---
 
 ### Almacén
 
-Representa el stock utilizado para abastecer al supermercado.
+El almacén será el encargado de reponer los productos del supermercado.
 
-Deberá:
+Cada producto tendrá también un determinado stock dentro del almacén.
 
-- Guardar las unidades disponibles de cada producto.
-- Comprobar si existe suficiente stock.
-- Abastecer al supermercado cuando sea necesario.
-- Detectar cuándo un producto está próximo a agotarse.
-- Solicitar productos a la fábrica cuando sea necesario.
+Cuando el supermercado necesite reponer un producto:
 
-### Pedido
+1. Se comprobará si el producto existe en el almacén.
+2. Se comprobará si hay suficiente stock.
+3. Se enviarán las unidades necesarias al supermercado.
+4. Se descontarán esas unidades del stock del almacén.
 
-Representa una solicitud de productos.
+Con el paso del tiempo, el stock del almacén también irá disminuyendo.
 
-Al realizar un pedido se deberá:
+Cuando un producto del almacén se termine o esté próximo a agotarse, será necesario solicitar nuevas unidades a la fábrica.
 
-- Comprobar que el producto existe.
-- Comprobar que existe suficiente stock.
-- Calcular el coste del pedido.
-- Descontar las unidades correspondientes del stock.
-- Informar si el pedido no puede realizarse.
+---
 
 ### Fábrica
 
-Representa una empresa externa que suministra productos al almacén.
+La fábrica representa una empresa externa encargada de suministrar productos al almacén.
 
-Para simplificar la simulación, se considera que la fábrica dispone de stock infinito.
+Para simplificar la simulación, se considerará que la fábrica dispone de stock infinito.
 
-Cuando el almacén tenga pocas unidades de un producto, podrá realizar un pedido a la fábrica para reponer su stock.
+Cuando el almacén tenga pocas unidades de un producto, realizará un pedido a la fábrica.
 
-## Objetivo final
+La fábrica enviará las unidades necesarias y se actualizará el stock del almacén.
 
-Conectar todos los elementos anteriores para simular el funcionamiento completo del sistema:
+---
 
-**Fábrica → Almacén → Supermercado → Pedido**
+## Ciclo de funcionamiento
 
-De esta forma, el programa deberá gestionar correctamente los productos, el stock, los precios, los pedidos y la reposición de mercancía teniendo en cuenta las dependencias entre cada parte del sistema.
+El funcionamiento general de la simulación será:
+
+**Cliente compra productos → disminuye el stock del supermercado**
+
+**Supermercado necesita productos → solicita productos al almacén**
+
+**Almacén entrega productos → disminuye el stock del almacén**
+
+**Almacén necesita productos → solicita productos a la fábrica**
+
+**Fábrica repone el almacén**
+
+A partir de ese momento el ciclo vuelve a comenzar.
+
+El objetivo final es que todo este proceso funcione automáticamente mientras se realizan compras aleatorias y se actualizan los diferentes stocks.
