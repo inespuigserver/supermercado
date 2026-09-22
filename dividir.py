@@ -1,5 +1,5 @@
-num1 = int(input("Introduce el primer número: "))
-num2 = int(input("Introduce el segundo número: "))
+num1 = 20
+num2 = 5
 
 resultado = 0
 
