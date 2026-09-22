@@ -1,12 +1,15 @@
-num1 = 20
-num2 = 5
 
-resultado = 0
-
-while num1 >= num2:
-    num1 = num1 - num2
-    resultado = resultado + 1
-
+def division_entera(a, b):
+    if b == 0:
+        return "Error: No se puede dividir entre cero"
+    else:
+        resultado = 0
+        while a >= b:
+            a = a - b
+            resultado = resultado + 1
+        return resultado
+    
+resultado = division_entera(10, 3)
 print("El resultado es:", resultado)
 
 
