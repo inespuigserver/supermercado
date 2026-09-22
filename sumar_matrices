@@ -1,0 +1,13 @@
+def matrix_sum(matrix_a, matrix_b):
+
+    if len(matrix_a) != len(matrix_b) or len(matrix_a[0]) != len(matrix_b[0]):
+        raise ValueError("Las matrices deben tener las mismas dimensiones.")
+
+    result = []
+    for i in range(len(matrix_a)):
+        fila = []
+        for j in range(len(matrix_a[0])):
+            fila.append(matrix_a[i][j] + matrix_b[i][j])
+        result.append(fila)
+
+    return result
