@@ -25,3 +25,14 @@ def ordenar_array(arr):
             if arr[j] > arr[j+1]:
                 arr[j], arr[j+1] = arr[j+1], arr[j]
     return arr
+
+def sum_arrays(array1, array2):
+    if len(array1) != len(array2):
+        return None
+
+    result = []
+
+    for i in range(len(array1)):
+        result.append(array1[i] + array2[i])
+
+    return result
