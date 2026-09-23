@@ -142,8 +142,7 @@ stock_almacen = [
 ]
 
 
-# Cuando el stock del supermercado llegue a estos valores,
-# habrá que solicitar productos al almacen.
+# Cuando el stock del supermercado llegue a estos valores habrá que solicitar productos al almacen.
 
 stock_minimo_supermercado = [
     8,      # Manzana
@@ -179,8 +178,7 @@ stock_minimo_supermercado = [
 ]
 
 
-# Cuando el almacen llegue a estos valores,
-# habrá que pedir nuevas unidades a la fabrica.
+# Cuando el almacen llegue a estos valores habrá que pedir nuevas unidades a la fabrica.
 
 stock_minimo_almacen = [
     30,     # Manzana
