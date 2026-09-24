@@ -1,6 +1,6 @@
 import productos
 import super
-
+from productos import stock_minimo_almacen
 
 # Numero de clientes que entraran al supermercado
 numero_clientes = 100
@@ -221,3 +221,24 @@ for i in range(len(productos.productos)):
         productos.stock_almacen[i],
         "unidades"
     )
+
+def calcular_cantidad_reposicion(stock_minimo_almacen):
+    
+    cantidad_reposicion = []
+
+    for stock_minimo in stock_minimo_almacen:
+        cantidad_reposicion.append(stock_minimo * 2)
+
+    return cantidad_reposicion
+
+cantidad_reposicion = calcular_cantidad_reposicion(stock_minimo_almacen)
+
+print(cantidad_reposicion)
+
+
+def reponer_stock(stock_almacen):
+    
+    if stock_almacen <= stock_minimo_almacen:
+        stock_almacen = stock_almacen + cantidad_reposicion
+    
+    return stock_almacen
