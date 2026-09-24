@@ -1,7 +1,10 @@
+from time import time
+
 import productos
 import super
 
 
+<<<<<<< HEAD
 # Numero de clientes que entraran al supermercado
 numero_clientes = 20
 
@@ -48,3 +51,11 @@ for i in range(len(productos.productos)):
         productos.stock_supermercado[i],
         "unidades"
     )
+=======
+super.compra_random(
+    productos.productos,
+    productos.precios,
+    productos.stock_supermercado
+)
+
+>>>>>>> f7fd10092dd32c877ca58e91dbb70a8975a8f150
