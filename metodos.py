@@ -1,3 +1,8 @@
+import time
+
+import productos
+
+
 def division_entera(a, b):
     if b == 0:
         return "Error: No se puede dividir entre cero"
@@ -64,3 +69,11 @@ def matrix_sum(matrix_a, matrix_b):
         result.append(fila)
 
     return result
+
+def step():
+    super.compra_random(
+        productos.productos,
+        productos.precios,
+        productos.stock_supermercado
+    )
+    time.sleep(3)

@@ -1,3 +1,5 @@
+from time import time
+
 import productos
 import super
 
@@ -7,3 +9,4 @@ super.compra_random(
     productos.precios,
     productos.stock_supermercado
 )
+
