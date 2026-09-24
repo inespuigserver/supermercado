@@ -231,14 +231,25 @@ def calcular_cantidad_reposicion(stock_minimo_almacen):
 
     return cantidad_reposicion
 
-cantidad_reposicion = calcular_cantidad_reposicion(stock_minimo_almacen)
 
-print(cantidad_reposicion)
+cantidad_reposicion = calcular_cantidad_reposicion(stock_minimo_almacen)
 
 
 def reponer_stock(stock_almacen):
-    
-    if stock_almacen <= stock_minimo_almacen:
-        stock_almacen = stock_almacen + cantidad_reposicion
-    
+
+    for i in range(len(stock_almacen)):
+
+        if stock_almacen[i] <= stock_minimo_almacen[i]:
+
+            stock_almacen[i] = stock_almacen[i] + cantidad_reposicion[i]
+
+            print(
+                "Se ha repuesto el producto",
+                i,
+                ". Nuevo stock:",
+                stock_almacen[i]
+            )
+
     return stock_almacen
+
+productos.stock_almacen = reponer_stock(productos.stock_almacen)
