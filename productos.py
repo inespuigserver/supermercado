@@ -1,5 +1,5 @@
 # Nombres de los productos
-
+#pycache
 productos = [
     "Manzana",
     "Platano",
