@@ -1,10 +1,7 @@
-from time import time
-
 import productos
 import super
 
 
-<<<<<<< HEAD
 # Numero de clientes que entraran al supermercado
 numero_clientes = 20
 
