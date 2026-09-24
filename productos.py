@@ -212,3 +212,37 @@ stock_minimo_almacen = [
     15,     # Lejia
     15      # Limpiacristales
 ]
+
+# Stock disponible en la fábrica
+stock_fabrica = [
+    500,  # Manzana
+    500,  # Platano
+    400,  # Pasta
+    400,  # Arroz
+    500,  # Leche
+    400,  # Huevos
+    450,  # Pan
+    300,  # Pollo
+    300,  # Carne picada
+    450,  # Yogur
+    300,  # Queso
+    300,  # Jamon cocido
+    350,  # Atun en lata
+    450,  # Tomate
+    450,  # Patatas
+    400,  # Cebolla
+    250,  # Aceite de oliva
+    300,  # Sal
+    300,  # Azucar
+    300,  # Cafe
+    600,  # Agua mineral
+    500,  # Coca-Cola
+    400,  # Zumo de naranja
+    450,  # Cerveza
+    250,  # Detergente
+    250,  # Suavizante
+    280,  # Jabon de manos
+    300,  # Papel higienico
+    250,  # Lejia
+    250   # Limpiacristales
+]
