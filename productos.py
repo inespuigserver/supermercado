@@ -267,3 +267,41 @@ produccion_fabrica = [
     180, 180, 200, 260, 260, 250, 150, 180, 180, 180,
     350, 300, 250, 260, 150, 150, 160, 180, 150, 150
 ]
+
+def producir_en_fabrica(indice):
+    """
+    Si la fábrica baja del stock mínimo, produce más unidades.
+    """
+    if stock_fabrica[indice] <= stock_minimo_fabrica[indice]:
+        print(f" La fábrica está produciendo más {productos[indice]}...")
+        stock_fabrica[indice] += produccion_fabrica[indice]
+        print(f"   Producción completada: +{produccion_fabrica[indice]} unidades.")
+        print(f"   Stock actual en fábrica: {stock_fabrica[indice]}")
+
+
+def reponer_almacen(indice):
+    """
+    Reposición automática del almacén desde la fábrica.
+    La cantidad repuesta depende del stock disponible en la fábrica.
+    """
+    if stock_almacen[indice] <= stock_minimo_almacen[indice]:
+        print(f" El almacén ha llegado al stock mínimo de {productos[indice]}.")
+
+        # Cantidad deseada: reponer el doble del mínimo
+        cantidad_deseada = stock_minimo_almacen[indice] * 2
+
+        # Si la fábrica no tiene suficiente, produce
+        if stock_fabrica[indice] < cantidad_deseada:
+            producir_en_fabrica(indice)
+
+        # Reponer lo que se pueda
+        cantidad_reponer = min(cantidad_deseada, stock_fabrica[indice])
+
+        if cantidad_reponer > 0:
+            stock_almacen[indice] += cantidad_reponer
+            stock_fabrica[indice] -= cantidad_reponer
+
+            print(f" Reposición desde fábrica: +{cantidad_reponer} unidades.")
+            print(f"   Stock restante en fábrica: {stock_fabrica[indice]}")
+        else:
+            print(f" La fábrica no tiene más {productos[indice]} para enviar.")
