@@ -159,3 +159,19 @@ def tiempo_en_grupos(horas_tareas, num_empleados, tam_grupo):
     """Empleados en grupos (8 empleados de 2 en 2 = 4 tareas a la vez)."""
     simultaneas = division_entera(num_empleados, tam_grupo)
     return simular_tiempo(horas_tareas, tam_grupo, simultaneas)
+
+
+def restar_arrays(array1, array2):
+    if len(array1) != len(array2):
+        raise ValueError("Los arrays deben tener la misma longitud")
+    result = []
+    for i in range(len(array1)):
+        result.append(array1[i] - array2[i])
+    return result
+
+
+def sumar_lista(lista):
+    total = 0
+    for x in lista:
+        total = total + x
+    return total

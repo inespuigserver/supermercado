@@ -258,19 +258,23 @@ print("\nCoste del pedido:", round(metodos.coste_total(nombres_pedido, cantidade
 
 
 
-# Parte 2 del main, añadiendo tiempo al ejericicio
 
-def restar_arrays(array1, array2):
-    if len(array1) != len(array2):
-        raise ValueError("Los arrays deben tener la misma longitud")
-    result = []
-    for i in range(len(array1)):
-        result.append(array1[i] - array2[i])
-    return result
+# PARTE II: TIEMPO DE REPOSICION SEGUN EMPLEADOS
 
+HORAS_POR_UNIDAD = 0.1  # un empleado tarda 6 minutos por unidad repuesta
 
-def sumar_lista(lista):
-    total = 0
-    for x in lista:
-        total = total + x
-    return total
+# Unidades que faltan en cada estanteria para volver al stock inicial
+faltan = metodos.restar_arrays(stock_objetivo_supermercado, productos.stock_supermercado)
+horas_tareas = metodos.calcular_horas_tareas(faltan, HORAS_POR_UNIDAD)
+
+print("\n========================================")
+print("   PARTE II: TIEMPO DE REPOSICION")
+print("========================================")
+print("Tareas de reposicion:", len(horas_tareas))
+print("Horas totales para un solo empleado:", round(metodos.sumar_lista(horas_tareas), 2))
+
+for empleados in [4, 8, 12]:
+    print("\n--- Con", empleados, "empleados ---")
+    print("Equitativo:", round(metodos.tiempo_equitativo(horas_tareas, empleados), 2), "horas")
+    print("Cada uno solo:", round(metodos.tiempo_en_solitario(horas_tareas, empleados), 2), "horas")
+    print("En grupos de 2:", round(metodos.tiempo_en_grupos(horas_tareas, empleados, 2), 2), "horas")
