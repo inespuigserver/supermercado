@@ -247,13 +247,6 @@ stock_fabrica = [
     250   # Limpiacristales
 ]
 
-# Stock disponible en la fábrica
-stock_fabrica = [
-    500, 500, 400, 400, 500, 400, 450, 300, 300, 450,
-    300, 300, 350, 450, 450, 400, 250, 300, 300, 300,
-    600, 500, 400, 450, 250, 250, 280, 300, 250, 250
-]
-
 # Stock mínimo de fábrica (si baja de aquí, produce)
 stock_minimo_fabrica = [
     150, 150, 120, 120, 150, 120, 130, 80, 80, 130,
