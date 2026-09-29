@@ -38,7 +38,6 @@ def compra_random(productos, precios, stock_supermercado):
                 "€"
             )
 
-    print("----------------------------")
     print("Total:", round(coste_total, 2), "€")
 
     return coste_total
