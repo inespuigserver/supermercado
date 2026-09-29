@@ -255,3 +255,22 @@ nombres_pedido = ["Leche", "Pan", "Cafe"]
 cantidades_pedido = [50, 30, 20]
 
 print("\nCoste del pedido:", round(metodos.coste_total(nombres_pedido, cantidades_pedido), 2), "€")
+
+
+
+# Parte 2 del main, añadiendo tiempo al ejericicio
+
+def restar_arrays(array1, array2):
+    if len(array1) != len(array2):
+        raise ValueError("Los arrays deben tener la misma longitud")
+    result = []
+    for i in range(len(array1)):
+        result.append(array1[i] - array2[i])
+    return result
+
+
+def sumar_lista(lista):
+    total = 0
+    for x in lista:
+        total = total + x
+    return total
