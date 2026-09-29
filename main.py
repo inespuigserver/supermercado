@@ -1,6 +1,6 @@
 import productos
 import super
-from productos import stock_minimo_almacen
+import metodos
 
 # Numero de clientes que entraran al supermercado
 numero_clientes = 100
@@ -222,34 +222,36 @@ for i in range(len(productos.productos)):
         "unidades"
     )
 
-def calcular_cantidad_reposicion(stock_minimo_almacen):
-    
-    cantidad_reposicion = []
+# USO DE metodos.py
 
-    for stock_minimo in stock_minimo_almacen:
-        cantidad_reposicion.append(stock_minimo * 2)
+# Stock total por producto (supermercado + almacen)
+stock_total = metodos.sum_arrays(productos.stock_supermercado, productos.stock_almacen)
 
-    return cantidad_reposicion
+print("\n========================================")
+print("   STOCK TOTAL (SUPERMERCADO + ALMACEN)")
+print("========================================")
 
+for i in range(len(productos.productos)):
+    print(productos.productos[i], "-", stock_total[i], "unidades")
 
-cantidad_reposicion = calcular_cantidad_reposicion(stock_minimo_almacen)
+# Stock total ordenado de menor a mayor
+stock_ordenado = metodos.ordenar_array(stock_total)
+print("\nStock total ordenado:", stock_ordenado)
+print("Menor stock:", stock_ordenado[0], "| Mayor stock:", stock_ordenado[-1])
 
+# Stock del almacen en cajas de 12
+UNIDADES_POR_CAJA = 12
 
-def reponer_stock(stock_almacen):
+print("\n========================================")
+print("      ALMACEN EN CAJAS DE", UNIDADES_POR_CAJA)
+print("========================================")
 
-    for i in range(len(stock_almacen)):
+for i in range(len(productos.productos)):
+    cajas, sueltas = metodos.repartir_en_cajas(productos.stock_almacen[i], UNIDADES_POR_CAJA)
+    print(productos.productos[i], "-", cajas, "cajas y", sueltas, "sueltas")
 
-        if stock_almacen[i] <= stock_minimo_almacen[i]:
+# Coste de un pedido (funcion nueva del ejercicio)
+nombres_pedido = ["Leche", "Pan", "Cafe"]
+cantidades_pedido = [50, 30, 20]
 
-            stock_almacen[i] = stock_almacen[i] + cantidad_reposicion[i]
-
-            print(
-                "Se ha repuesto el producto",
-                i,
-                ". Nuevo stock:",
-                stock_almacen[i]
-            )
-
-    return stock_almacen
-
-productos.stock_almacen = reponer_stock(productos.stock_almacen)
+print("\nCoste del pedido:", round(metodos.coste_total(nombres_pedido, cantidades_pedido), 2), "€")
