@@ -99,3 +99,63 @@ def coste_total(nombres, cantidades):
 def repartir_en_cajas(unidades, unidades_por_caja):
     """Devuelve (cajas completas, unidades sueltas)."""
     return division_entera(unidades, unidades_por_caja), modulo(unidades, unidades_por_caja)
+
+
+
+# PARTE 2 DEL EJERCICIO
+def calcular_horas_tareas(cantidades, horas_por_unidad):
+    """Horas que tarda UN empleado en cada tarea (solo tareas con cantidad > 0)."""
+    horas = []
+    for c in cantidades:
+        if c > 0:
+            horas.append(c * horas_por_unidad)
+    return horas
+
+
+def quedan_pendientes(pendientes):
+    for h in pendientes:
+        if h > 0:
+            return True
+    return False
+
+
+def simular_tiempo(horas_tareas, empleados_por_tarea, simultaneas, paso=0.25):
+    """
+    Funcion base para los 3 escenarios. Simula el paso del tiempo con un bucle.
+    - empleados_por_tarea: cuantos empleados trabajan en cada tarea (acelera la tarea)
+    - simultaneas: cuantas tareas se pueden hacer a la vez
+    - paso: horas que avanza cada vuelta del bucle
+    """
+    if simultaneas < 1:
+        raise ValueError("No hay empleados suficientes para formar un grupo")
+
+    pendientes = horas_tareas[:]
+    tiempo = 0
+
+    while quedan_pendientes(pendientes):
+        activas = 0
+        for i in range(len(pendientes)):
+            if pendientes[i] > 0 and activas < simultaneas:
+                pendientes[i] = pendientes[i] - paso * empleados_por_tarea
+                activas = activas + 1
+        tiempo = tiempo + paso
+
+    return tiempo
+
+
+def tiempo_equitativo(horas_tareas, num_empleados):
+    """Todos los empleados repartidos a partes iguales entre todas las tareas a la vez."""
+    n = len(horas_tareas)
+    return simular_tiempo(horas_tareas, num_empleados / n, n)
+
+
+def tiempo_en_solitario(horas_tareas, num_empleados):
+    """Cada empleado trabaja solo en una tarea (si hay 8 y 5 tareas, trabajan 5)."""
+    simultaneas = min(num_empleados, len(horas_tareas))
+    return simular_tiempo(horas_tareas, 1, simultaneas)
+
+
+def tiempo_en_grupos(horas_tareas, num_empleados, tam_grupo):
+    """Empleados en grupos (8 empleados de 2 en 2 = 4 tareas a la vez)."""
+    simultaneas = division_entera(num_empleados, tam_grupo)
+    return simular_tiempo(horas_tareas, tam_grupo, simultaneas)
