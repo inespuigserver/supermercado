@@ -119,7 +119,7 @@ def quedan_pendientes(pendientes):
     return False
 
 
-def simular_tiempo(horas_tareas, empleados_por_tarea, simultaneas, paso=0.25):
+def simular_tiempo(horas_tareas, empleados_por_tarea, simultaneas, paso=0.1):
     """
     Funcion base para los 3 escenarios. Simula el paso del tiempo con un bucle.
     - empleados_por_tarea: cuantos empleados trabajan en cada tarea (acelera la tarea)
@@ -143,7 +143,7 @@ def simular_tiempo(horas_tareas, empleados_por_tarea, simultaneas, paso=0.25):
     return tiempo
 
 
-def tiempo_equitativo(horas_tareas, num_empleados, paso=0.25):
+def tiempo_equitativo(horas_tareas, num_empleados, paso=0.1):
     """Reparte los empleados de forma equitativa entre las tareas pendientes."""
 
     if num_empleados < 1:
