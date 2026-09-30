@@ -270,6 +270,23 @@ horas_tareas = metodos.calcular_horas_tareas(faltan, HORAS_POR_UNIDAD)
 print("\n========================================")
 print("   PARTE II: TIEMPO DE REPOSICION")
 print("========================================")
+
+print("\nTiempo de cada tarea para un empleado:")
+
+for i in range(len(productos.productos)):
+    if faltan[i] > 0:
+
+        tiempo_producto = faltan[i] * HORAS_POR_UNIDAD
+
+        print(
+            productos.productos[i],
+            "-",
+            faltan[i],
+            "unidades -",
+            round(tiempo_producto, 2),
+            "horas"
+        )
+        
 print("Tareas de reposicion:", len(horas_tareas))
 print("Horas totales para un solo empleado:", round(metodos.sumar_lista(horas_tareas), 2))
 

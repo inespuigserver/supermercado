@@ -143,10 +143,52 @@ def simular_tiempo(horas_tareas, empleados_por_tarea, simultaneas, paso=0.25):
     return tiempo
 
 
-def tiempo_equitativo(horas_tareas, num_empleados):
-    """Todos los empleados repartidos a partes iguales entre todas las tareas a la vez."""
-    n = len(horas_tareas)
-    return simular_tiempo(horas_tareas, num_empleados / n, n)
+def tiempo_equitativo(horas_tareas, num_empleados, paso=0.25):
+    """Reparte los empleados de forma equitativa entre las tareas pendientes."""
+
+    if num_empleados < 1:
+        raise ValueError("Debe haber al menos un empleado")
+
+    if len(horas_tareas) == 0:
+        return 0
+
+    pendientes = horas_tareas[:]
+    tiempo = 0
+
+    while quedan_pendientes(pendientes):
+
+        # Guardamos las tareas que todavía no han terminado
+        tareas_pendientes = []
+
+        for i in range(len(pendientes)):
+            if pendientes[i] > 0:
+                tareas_pendientes.append(i)
+
+        # Número de tareas que se pueden hacer a la vez
+        simultaneas = min(num_empleados, len(tareas_pendientes))
+
+        # Repartimos los empleados entre esas tareas
+        empleados_base = division_entera(num_empleados, simultaneas)
+        empleados_sobrantes = modulo(num_empleados, simultaneas)
+
+        for j in range(simultaneas):
+
+            empleados_tarea = empleados_base
+
+            # Los empleados que sobran se reparten de uno en uno
+            if j < empleados_sobrantes:
+                empleados_tarea = empleados_tarea + 1
+
+            posicion = tareas_pendientes[j]
+
+            pendientes[posicion] = (
+                pendientes[posicion]
+                - paso * empleados_tarea
+            )
+
+        tiempo = tiempo + paso
+
+    return tiempo
 
 
 def tiempo_en_solitario(horas_tareas, num_empleados):
